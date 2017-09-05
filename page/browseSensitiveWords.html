@@ -1,0 +1,129 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>敏感词维护</span><em>&gt;</em><span>浏览敏感词</span>
+        </div>
+    </div>
+
+    <div id="searchOptions" data-ng-controller="dimensionCtrl">
+        <div class="inner other-m clearfix">
+            <ul class="options clearfix">
+                <li>
+                    <div class="title">敏感词：</div>
+                    <div class="value">
+                        <div class="ui-text">
+                            <input type="text" data-ng-model="sensitiveWords">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">审核维度：</div>
+                    <div class="value">
+                        <div class="two-w ui-drop-down-inner dimension">
+                            <div class="ui-drop-down">
+                                <div class="show-t" data-id="{{ dimension }}">{{ dimensionName }}</div>
+                                <div class="triangle"></div>
+                            </div>
+                            <div class="ui-drop-down-list">
+                                <ul>
+                                    <li data-ng-class="{true : 'select'}[x.tags == pzWd]" data-ng-click="updateDimension(x.tags,x.name)" data-id="{{ x.tags }}" data-ng-repeat="x in tagList">{{ x.name }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="two-w ui-drop-down-inner dimensionTag">
+                            <div class="ui-drop-down">
+                                <div class="show-t" id="showAll" data-id="{{ dimensionTag }}">{{ dimensionTagName }}</div>
+                                <div class="triangle"></div>
+                            </div>
+                            <div class="ui-drop-down-list">
+                                <ul>
+                                    <li data-ng-click="updateDimensionTag('all','全部')" data-id="all" class="select">全部</li>
+                                    <li data-ng-class="{true : 'select'}[x.attr == pzWdTag]" data-ng-click="updateDimensionTag(x.attr,x.label)" data-id="{{ x.attr }}" data-ng-repeat="x in classify">{{ x.label }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+            <a class="search-btn btn-blue-z" href="{{'#/browseSensitiveWords/1&' + clearFh(sensitiveWords) + '&' + dimension + '&' + dimensionTag}}">搜&nbsp;&nbsp;索</a>
+
+        </div>
+    </div>
+
+    <div id="browseTable">
+
+        <div id="sensitiveWordsList">
+            <div class="top-info">
+                <span>符合搜索条件的敏感词共<var>{{ pagesTotal }}</var>条记录，分为<var>{{ pagesNum }}</var>页显示，当前为第<var>{{ page }}</var>页</span>
+                <a data-ng-show="{{ userRole === 'auditor' }}" href="#/addSensitiveWords" class="add-btn btn-white"><s></s>添加敏感词</a>
+            </div>
+
+            <div class="browse-talbe">
+                <table class="all-ui-select-body">
+                    <tr class="head">
+                        <!--<th class="op">-->
+                            <!--<span class="all-ui-select-inner">-->
+                                <!--<a class="ui-all-select" href="javascript:void(0);"></a>-->
+                                <!--<span class="triangle"></span>-->
+                                <!--<span class="nm-list">-->
+                                    <!--<a class="select-all" href="javascript:void(0);">全选</a>-->
+                                    <!--<a class="uncheck-all" href="javascript:void(0);">全不选</a>-->
+                                <!--</span>-->
+                            <!--</span>-->
+                        <!--</th>-->
+                        <th>ID</th>
+                        <th>敏感词</th>
+                        <th>审核纬度</th>
+                        <th>添加时间</th>
+                        <th data-ng-show="{{ userRole === 'auditor' }}" data-ng-class="{true: 'hidden'}[listData[0].tags != usernameWd]">操作</th>
+                    </tr>
+                    <!--select-tr-->
+                    <tr data-ng-repeat="x in listData">
+                        <!--<td class="op">-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select" href="javascript:void(0);"></a>-->
+                            <!--</span>-->
+                        <!--</td>-->
+                        <td>{{ x._id }}</td>
+                        <td><span title="{{ x.word }}" class="mgc">{{ x.word }}</span></td>
+                        <td>{{ x.name }}</td>
+                        <td>{{ getTime(x.ctime) }}</td>
+                        <td data-ng-show="{{ userRole === 'auditor' }}" data-ng-class="{true: 'hidden'}[x.tags != usernameWd]"><a class="delete" title="删除" href="javascript:void(0);"><s data-mgc="{{ x.word }}" data-tags="{{ x.tags }}" data-id="{{ x._id }}" data-ng-click="deleteTags($event.target)"></s></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="pageInner" class="clearfix">
+            <div class="ui-paginator">
+                <a href="#/browseSensitiveWords/{{ pageFirst }}" class="first">首页</a>
+
+                <div class="pages-inner">
+                    <a href="#/browseSensitiveWords/{{ pagePrev }}" class="prev">上一页</a>
+                    <div class="pages">
+                        <a href="javascript:void(0);" title="第 {{ page }} 页" class="now-page">{{ page }}/{{ pagesNum }}</a>
+                        <div class="pages-select-list">
+                            <ul>
+                                <li data-ng-repeat="x in pagesArr" data-ng-class="{true: 'select'}[page - x == 0]">
+                                    <a href="#/browseSensitiveWords/{{x + ssArr}}" title="第 {{x}} 页">{{x}}/{{ pagesNum }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sj"></div>
+                    </div>
+                    <a href="#/browseSensitiveWords/{{ pageNext }}" class="next">下一页</a>
+                </div>
+
+                <a href="#/browseSensitiveWords/{{ pageEnd }}" class="last">末页</a>
+            </div>
+
+            <a data-ng-show="{{ userRole === 'auditor' }}" href="#/addSensitiveWords" class="add-btn btn-white"><s></s>添加敏感词</a>
+
+        </div>
+    </div>
+
+</div>

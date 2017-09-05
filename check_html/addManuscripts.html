@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加稿源</title>
+<link href="../styles/baseStyle.css" rel="stylesheet" type="text/css">
+<link href="../styles/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="../styles/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header">
+    <div class="inner">
+        <div class="logo">
+            <a href="/"><img src="../images/logo.png"></a>
+        </div>
+
+        <div class="user-operation">
+            <span>你好：<a href="#">Raiden</a></span>
+            <em>/</em>
+            <span><a href="#">账号设置</a></span>
+            <em>/</em>
+            <span><a href="#">退出</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<a href="#">版权库维护</a><em>&gt;</em><a href="#">添加稿源</a>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">合作方分类：</div>
+            <div class="value">
+
+                <div class="partner-categories">
+                    <span class="ui-select-inner">
+                        <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>网站</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>报纸</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>杂志</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>视频</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>微信公众号</span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">合作方名称：</div>
+            <div class="value">
+                <span class="ui-text ui-text-l">
+                    <input type="text">
+                </span>
+                <cite>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">URL地址：</div>
+            <div class="value">
+                <span class="ui-text ui-text-l">
+                    <input type="text">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">包含合作内容：</div>
+            <div class="value">
+                <span class="ui-textarea">
+                    <textarea></textarea>
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">单日稿件上线：</div>
+            <div class="value">
+                <span class="ui-text manuscript-num">
+                    <input class="url-input" type="text" maxlength="4">
+                </span>
+
+                <span class="ui-select-inner">
+                    <a class="ui-select" href="javascript:void(0);"></a>
+                    <span>无限制</span>
+                </span>
+
+                <cite><em>|</em>请输入大于 0 的整数<em>|</em>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">合作方式：</div>
+            <div class="value">
+
+                <div class="ui-drop-down-inner">
+                    <div class="ui-drop-down">
+                        <div class="show-t">签订协议</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li class="select">签订协议</li>
+                            <li>口头协定</li>
+                            <li>可以使用</li>
+                            <li>不可使用</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <cite>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">有效期：</div>
+            <div class="value">
+                <div class="ui-date-inner clearfix">
+                    <div class="ui-date ui-drop-down-inner">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_start" id="example_1_start">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+
+                    <span class="ms">至&nbsp;</span>
+
+                    <div class="ui-date ui-drop-down-inner">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_end" id="example_1_end">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="ui-select-inner">
+                    <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                    <span>默认永远有效</span>
+                </span>
+
+                <cite><em>|</em>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">备注：</div>
+            <div class="value">
+                <div class="ui-textarea">
+                    <textarea> </textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit"></div>
+            <div class="value">
+                <a id="addSensitiveWordsBtn" class="btn-blue-z" href="javascript:void(0);">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="siteNav" class="site-nav-hidden">
+    <div class="inner">
+        <dl>
+            <dt>内容审核</dt>
+            <dd class="select"><a href="#">待审核内容</a></dd>
+            <dd><a href="#">已审核内容</a></dd>
+        </dl>
+        <dl>
+            <dt>敏感词库维护</dt>
+            <dd><a href="#">添加敏感词</a></dd>
+            <dd><a href="#">浏览敏感词</a></dd>
+        </dl>
+        <dl>
+            <dt>系统设置</dt>
+            <dd><a href="#">添加管理员</a></dd>
+            <dd><a href="#">管理管理员</a></dd>
+        </dl>
+        <a href="javascript:void(0);" class="switch" style="top: 200px;"><s></s></a>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="../js/TagBase.js"></script>
+</body>
+</html>

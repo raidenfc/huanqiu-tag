@@ -1,0 +1,150 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>版权库维护</span><em>&gt;</em><span>添加稿源</span>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">合作方分类：</div>
+            <div class="value">
+
+                <div class="partner-categories">
+                    <span class="ui-select-inner">
+                        <a data-id="1" class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                        <span>网站</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a data-id="2" class="ui-select" href="javascript:void(0);"></a>
+                        <span>报纸</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a data-id="3" class="ui-select" href="javascript:void(0);"></a>
+                        <span>杂志</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a data-id="4" class="ui-select" href="javascript:void(0);"></a>
+                        <span>视频</span>
+                    </span>
+
+                    <span class="ui-select-inner">
+                        <a data-id="5" class="ui-select" href="javascript:void(0);"></a>
+                        <span>微信公众号</span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">合作方名称：</div>
+            <div class="value">
+                <span class="ui-textarea">
+                    <textarea class="partner-name"></textarea>
+                </span>
+                <cite class="textarea-tips">提示：必填，请换行输入，一行代表一个名称</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">URL地址：</div>
+            <div class="value">
+                <span class="ui-text ui-text-l">
+                    <input type="text" class="partner-url">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">单日稿件上限：</div>
+            <div class="value manuscript-cap">
+                <span class="ui-text manuscript-num">
+                    <input class="manuscript-cap-num" type="text" maxlength="4" data-ng-blur="yzManuscriptNum($event.target)">
+                </span>
+
+                <span class="ui-select-inner">
+                    <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                    <span>无限制</span>
+                </span>
+
+                <cite><em>|</em>请输入大于 0 的整数<em>|</em>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">合作方式：</div>
+            <div class="value">
+
+                <div class="ui-drop-down-inner cooperation-method">
+                    <div class="ui-drop-down">
+                        <div class="show-t">签订协议</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li class="select" data-id="cd">签订协议</li>
+                            <li data-id="cc">口头授权</li>
+                            <li data-id="cm">可以使用</li>
+                            <li data-id="ca">不可使用</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <cite>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">有效期：</div>
+            <div class="value">
+                <div class="ui-date-inner clearfix" data-ng-init="dateUI_timepicker()">
+                    <div class="ui-date ui-drop-down-inner start-time">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_start" id="example_1_start">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+
+                    <span class="ms">至&nbsp;</span>
+
+                    <div class="ui-date ui-drop-down-inner end-time">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_end" id="example_1_end">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="ui-select-inner">
+                    <a class="ui-select ui-select-s endless" href="javascript:void(0);"></a>
+                    <span>默认永远有效</span>
+                </span>
+
+                <cite><em>|</em>必填</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">备注：</div>
+            <div class="value">
+                <div class="ui-textarea">
+                    <textarea class="remark"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit"></div>
+            <div class="value">
+                <a data-ng-click="addManuscriptsPost()" class="btn-blue-z" href="javascript:void(0);">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

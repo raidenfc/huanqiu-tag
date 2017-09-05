@@ -1,0 +1,82 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>管理员管理</span><em>&gt;</em><span>添加管理人</span>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">用户名：</div>
+            <div class="value username">
+                <span class="ui-text">
+                    <input type="text" maxlength="20" data-ng-blur="yzUsername($event.target)">
+                </span>
+                <cite>字母与数字组成，20个字符内</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">真实姓名：</div>
+            <div class="value real-name">
+                <span class="ui-text">
+                    <input type="text" maxlength="20">
+                </span>
+                <cite>字母与数字组成，20个字符内</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">初始密码：</div>
+            <div class="value password">
+                <span class="ui-text">
+                    <input type="password">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">权限设置：</div>
+            <div class="value competence">
+                <div class="one-w ui-drop-down-inner">
+                    <div class="ui-drop-down">
+                        <div class="show-t">管理员</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li class="select" data-ng-click="changeRole('administrator')" data-id="administrator">管理员</li>
+                            <li data-ng-click="changeRole('auditor')" data-id="auditor">审核人员</li>
+                            <li data-ng-click="changeRole('reviewer')" data-id="reviewer">复审人员</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="a-box clearfix" data-ng-class="{true: 'hidden'}[theUserRole != 'auditor']">
+            <div class="tit">审核分类：</div>
+            <div class="value">
+                <div class="ui-radio-inner audit-category-select-inner">
+
+                    <span class="ui-radio" data-ng-class="{true:'ui-radio-select'}[$first]" data-ng-repeat="x in tagList">
+                        <a data-id="{{ x.tags }}" href="javascript:void(0);"></a>
+                        <span>{{ x.name }}</span>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit"></div>
+            <div class="value">
+                <a class="btn-blue-z add-admin" href="javascript:void(0);" data-ng-click="addAdminPost($event.target)">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

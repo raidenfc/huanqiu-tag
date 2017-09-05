@@ -1,0 +1,30 @@
+<div id="siteNav" class="site-nav-hidden">
+    <div class="inner">
+        <dl>
+            <dt>内容审核</dt>
+            <dd data-ng-show="{{ userRole === 'auditor' }}"><a data-ng-click="clickNav($event.target)" href="#/pending">待审核内容</a></dd>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/approved/1">已审核内容</a></dd>
+        </dl>
+        <dl>
+            <dt>版权库维护</dt>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/addManuscripts">添加稿源</a></dd>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/browseManuscripts/1" >浏览稿源</a></dd>
+        </dl>
+        <dl>
+            <dt>敏感词库维护</dt>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/addSensitiveWords">添加敏感词</a></dd>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/browseSensitiveWords/1">浏览敏感词</a></dd>
+        </dl>
+        <dl data-ng-show="{{ userRole === 'administrator' }}">
+            <dt>管理员管理</dt>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/addAdmin">添加管理员</a></dd>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/browseAdmin">管理管理员</a></dd>
+        </dl>
+        <dl data-ng-show="{{ userRole === 'administrator' }}">
+            <dt>审核维度管理</dt>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/addTag">添加审核维度</a></dd>
+            <dd><a data-ng-click="clickNav($event.target)" href="#/browseTag/1">管理审核维度</a></dd>
+        </dl>
+        <a href="javascript:void(0);" class="switch" data-ng-click="toNav($event.target)" style="top: 200px;"><s></s></a>
+    </div>
+</div>

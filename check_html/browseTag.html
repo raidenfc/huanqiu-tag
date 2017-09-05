@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>管理审核维度</title>
+<link href="../styles/baseStyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="header">
+    <div class="inner">
+        <div class="logo">
+            <a href="/"><img src="../images/logo.png"></a>
+        </div>
+
+        <div class="user-operation">
+            <span>你好：<a href="#">Raiden</a></span>
+            <em>/</em>
+            <span><a href="#">账号设置</a></span>
+            <em>/</em>
+            <span><a href="#">退出</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>审核维度管理</span><em>&gt;</em><span>管理审核维度</span>
+        </div>
+    </div>
+
+    <div id="browseTable">
+
+        <div id="sensitiveWordsList">
+
+            <div class="top-info">
+                <span>符合搜索条件的信息共<var>71</var>条记录，分为<var>4</var>页显示，当前为第<var>1</var>页</span>
+            </div>
+
+            <div class="top-info">
+                <a href="#/addManuscripts" class="add-btn btn-white"><s></s>新增审核维度</a>
+            </div>
+
+            <div class="browse-talbe">
+                <table>
+                    <tr class="head">
+                        <th class="op"></th>
+                        <th>一级审核维度名称</th>
+                        <th>二级审核维度名称</th>
+                        <th>审核类型</th>
+                        <th>权重</th>
+                        <th>添加时间</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr>
+                        <td class="op">1</td>
+                        <td>色情</td>
+                        <td>色情言语</td>
+                        <td>文本</td>
+                        <td>0.4</td>
+                        <td>2015-07-17 13:52</td>
+                        <td>含有敏感关键词（色情关键词）</td>
+                        <td>
+                            <a class="delete" title="删除" href="javascript:void(0);"><s></s></a>
+                            <a class="modify" title="修改" href="javascript:void(0);"><s></s></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="pageInner">
+            <div class="ui-paginator">
+                <a href="javascript:void('first');" class="first disabled">首页</a>
+
+                <div class="pages-inner">
+                    <a href="javascript:void('prev');" class="prev disabled">上一页</a>
+                    <div class="pages">
+                        <a href="javascript:void('1');" title="第 1 页" class="now-page">1/4</a>
+                        <div class="pages-select-list">
+                            <ul>
+                                <li class="select"><a href="javascript:void('1');" title="第 1 页">1/4</a></li>
+                                <li><a href="javascript:void('2');" title="第 2 页">2/4</a></li>
+                                <li><a href="javascript:void('3');" title="第 3 页">3/4</a></li>
+                                <li><a href="javascript:void('4');" title="第 4 页">4/4</a></li>
+                            </ul>
+                        </div>
+                        <div class="sj"></div>
+                    </div>
+                    <a href="javascript:void('next');" class="next">下一页</a>
+                </div>
+
+                <a href="javascript:void('last');" class="last">末页</a>
+            </div>
+
+            <a href="#/addManuscripts" class="add-btn btn-white"><s></s>新增审核维度</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

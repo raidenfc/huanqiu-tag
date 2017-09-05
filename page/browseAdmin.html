@@ -1,0 +1,44 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>管理员管理</span><em>&gt;</em><span>管理管理员</span>
+        </div>
+    </div>
+
+    <div id="browseTable">
+
+        <div id="sensitiveWordsList">
+            <div class="top-info">
+                <span>当前共有管理员<var>{{ listData.length }}</var>人</span>
+                <a href="#/addAdmin" class="add-sensitive-words btn-white add-btn"><s></s>添加管理员</a>
+            </div>
+
+            <div class="browse-talbe">
+                <table>
+                    <tr class="head">
+                        <th class="op">用户名</th>
+                        <th>真实姓名</th>
+                        <th>添加时间</th>
+                        <th>管理权限</th>
+                        <th>审核维度</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr data-ng-repeat="x in listData">
+                        <td class="op">{{ x.username }}</td>
+                        <td>{{ x.realname }}</td>
+                        <td>{{ getTime(x.add_time) }}</td>
+                        <td>{{ sAdmin(x.role) }}</td>
+                        <td>{{ x.classify }}</td>
+                        <td>
+                            <a class="delete" title="删除" href="javascript:void(0);"><s data-id="{{ x._id }}" data-username="{{ x.username }}" data-realname="{{x.realname}}" data-ng-click="deleteAdmin($event.target)"></s></a>
+                            <a class="modify" title="修改" href="javascript:void(0);"><s data-id="{{x._id}}" data-classify="{{x.classify_en}}" data-username="{{x.username}}" data-role="{{x.role}}" data-realname="{{x.realname}}" data-ng-click="setupAdmin($event.target)"></s></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,252 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>内容审核</span><em>&gt;</em><span>已审核内容</span>
+        </div>
+
+        <div class="ui-site-select ui-drop-down-inner hidden">
+            <div class="ui-drop-down">
+                <div class="show-t"><div class="site-icon"><img src="/templates/images/site_huanqiu.png">环球网</div></div>
+                <div class="triangle"></div>
+            </div>
+            <div class="ui-drop-down-list">
+                <ul>
+                    <li><div class="site-icon"><img src="/templates/images/site_people.png">人民网</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchOptions">
+        <div class="inner clearfix">
+            <ul class="options clearfix">
+                <li>
+                    <div class="title">关键词：</div>
+                    <div class="value">
+                        <div class="ui-text">
+                            <input type="text" data-ng-model="keyword">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">链接URL：</div>
+                    <div class="value">
+                        <div class="ui-text searchurl">
+                            <input type="text" data-ng-model="linkUrl">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="ui-date-inner clearfix">
+
+                <div class="ui-date-inner clearfix" data-ng-init="dateUI_timepicker()">
+                    <div class="ui-date ui-drop-down-inner start-time">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_start" id="example_1_start" data-ng-model="timeStart">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+
+                    <span class="ms">至&nbsp;</span>
+
+                    <div class="ui-date ui-drop-down-inner end-time">
+                        <div class="ui-drop-down">
+                            <input type="text" class="show-t" name="example_1_end" id="example_1_end" data-ng-model="timeEnd">
+                            <div class="triangle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <a data-ng-mouseenter="timeChange()" class="search-btn btn-blue-z" href="{{'#/approved/1&' + clearFh(keyword) + '&' + timeStart + '&' + timeEnd}}">搜&nbsp;&nbsp;索</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="monitoringInner">
+        <!--<div id="filterInner" class="clearfix">-->
+            <!--<div class="review-latitude">-->
+                <!--<a class="review-latitude-btn" href="javascript:void(0);"><s></s>审核纬度筛选</a>-->
+                <!--<div class="filter-select">-->
+                    <!--<ul class="all-ui-select-body clearfix">-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner all-select-inner">-->
+                                <!--<a class="ui-all-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>全部</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>色情</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>时政</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>领导人</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>广告</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>涉毒</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>涉赌</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="ui-select-inner">-->
+                                <!--<a class="ui-select ui-select-s" href="javascript:void(0);"></a>-->
+                                <!--<span>社会事件</span>-->
+                            <!--</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="top-info">
+            <span>符合搜索条件的信息共<var>{{ pagesTotal }}</var>条记录，分为<var>{{ pagesNum }}</var>页显示，当前为第<var>{{ page }}</var>页</span>
+        </div>
+
+        <div id="monitoringList">
+            <ul>
+                <li class="monitoring-inner" data-id="{{ x.siteid }}" data-ng-repeat="x in listData">
+                    <div class="t-box">
+                        <span class="no">{{ $index + 1 }}</span>
+                        <span class="title">
+                            关联标题：<a href="{{ x.url }}" target="_blank" title="{{ x.title }}" data-ng-bind-html="x.title | to_trusted"></a>
+                        </span>
+                        <span class="info">
+                            发布时间：<strong>{{ getTime(x.time) }}</strong><em>/</em>内容ID：<strong>{{ x.appid }}</strong>
+                        </span>
+                    </div>
+
+                    <div class="m-box">
+                        <div class="monitoring-value">
+                            <p class="show-text" data-ng-bind-html="getContent(x.content).val | to_trusted"></p>
+
+                            <a data-ng-show="{{ getContent(x.content)._val != '' }}" data-save-val="{{ getContent(x.content)._val }}" data-ng-click="viewFull($event.target)" class="view-full-btn" href="javascript:void(0);">查看全文<s></s></a>
+
+                            <div class="minImgListInner noBig" data-ng-show="{{ x.result_image.length }}">
+                                <ul class="img-list clearfix">
+                                    <li class="list-li" data-ng-repeat="i in x.result_image" data-url="{{ i.label[0] }}">
+                                        <div>
+                                            <img onload="imgCl(this,95,95);" src="{{ i.image }}">
+                                        </div>
+                                        <div class="tag-list-bull-inner">
+                                            <div class="tag-list-bull" data-ng-repeat="e in i.label">
+                                                <div class="t"></div>
+                                                <div class="active {{e.tags}}">{{e.name}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="monitoringDetail">
+                            <div class="monitoring-dimension">
+                                <ul>
+                                    <li data-id="{{ i.label }}" class="{{ tagClass(i.label).className }}" data-ng-repeat="i in x.result">
+                                        <div class="dimension-fraction">{{ i.score }}</div>
+                                        <dl>
+                                            <dt class="dimension-name">{{ i.name }}<s></s></dt>
+                                            <dd data-id="{{ j.attr }}" data-ng-class="{true:'dimension-tag select-tag',false:'dimension-tag'}[j.status > 0]" data-ng-repeat="j in i.res">
+                                                <a href="javascript:void(0);"><s></s>{{ j.label }}</a>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ratings-explained" data-ng-hide="{{!x.remark}}">
+                                <div class="tit">评分说明：</div>
+                                <div class="val">
+                                    <p data-ng-repeat="m in x.remark">{{ m.remark }}<span>—— {{ m.realname }}</span></p>
+                                    <p data-ng-repeat="m in x.remark_word">{{ m.word }}<span>—— {{ m.realname }}</span></p>
+                                </div>
+                            </div>
+
+                            <div class="check clearfix">
+                                <div class="auditors">
+                                    <div class="tit">审核人员：</div>
+                                    <div class="val">
+                                        <ul>
+                                            <li data-ng-repeat="k in x.check_user"><span class="name">{{ k.realname }}</span><em>/</em><strong>{{ getTime(k.time) }}</strong>（ <span data-ng-repeat="n in k.label">{{ n.name }}<em data-ng-hide="$last">/</em></span> ）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="reviewer" data-ng-hide="{{!x.re_viewer}}">
+                                    <div class="tit">复审人员：</div>
+                                    <div class="val">
+                                        <ul>
+                                            <li data-ng-repeat="m in x.re_viewer"><span class="name">{{ m.realname }}</span><em>/</em><strong>{{ getTime(m.time) }}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="completed-degree-inner {{userRole}}">
+                        <div class="num">完成度：{{ x.processes * 100 }}%</div>
+                        <div class="view-btn view-open" data-ng-click="openMonitoring($event.target)">查看细节</div>
+                        <div class="view-close" data-ng-click="closeMonitoring($event.target)">收起</div>
+                        <!--<div class="view-btn correction" data-ng-click="correction($event.target)">纠错</div>-->
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="pageInner" class="clearfix">
+            <div class="ui-paginator">
+                <a href="#/approved/{{ pageFirst }}" class="first">首页</a>
+
+                <div class="pages-inner">
+                    <a href="#/approved/{{ pagePrev }}" class="prev">上一页</a>
+                    <div class="pages">
+                        <a href="javascript:void(0);" title="第 {{ page }} 页" class="now-page">{{ page }}/{{ pagesNum }}</a>
+                        <div class="pages-select-list">
+                            <ul>
+                                <li data-ng-repeat="x in pagesArr" data-ng-class="{true: 'select'}[page - x == 0]">
+                                    <a href="#/approved/{{x + ssArr}}" title="第 {{x}} 页">{{x}}/{{ pagesNum }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sj"></div>
+                    </div>
+                    <a href="#/approved/{{ pageNext }}" class="next">下一页</a>
+                </div>
+
+                <a href="#/approved/{{ pageEnd }}" class="last">末页</a>
+            </div>
+        </div>
+    </div>
+
+</div>

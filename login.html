@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>环球网监控平台-登陆</title>
+<link href="/templates/styles/baseStyle.css" rel="stylesheet" type="text/css">
+</head>
+<body class="loginBody">
+
+<div id="loginInner" class="clearfix">
+    <div id="loginFrom">
+        <div class="inner">
+            <div class="login-pic">
+                <img src="images/login_logo.png">
+            </div>
+
+            <div class="from">
+                <div class="user-name">
+                    <input class="login-input username" type="text" placeholder="用户名">
+                </div>
+
+                <div class="user-password">
+                    <input class="login-input password" type="password" placeholder="密码">
+                </div>
+
+                <div class="login-btn">
+                    <a class="btn-blue" id="login" href="javascript:void(0);">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="login-propaganda-pic"></div>
+</div>
+
+</body>
+<script type="text/javascript" src="/templates/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(document).on("click","#login",function(){
+        var username = $(".username").val();
+        var password = $(".password").val();
+
+        $.ajax({
+            type: 'post',
+            url: '/dashboard/login',
+            data: {
+                username : username,
+                password : password
+            } ,
+            dataType: 'json',
+            success:function(data) {
+                if(json.status <= 0){
+                    addTips(json.msg);
+                }
+            }
+        });
+    });
+});
+</script>
+</html>

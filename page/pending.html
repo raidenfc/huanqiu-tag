@@ -1,0 +1,139 @@
+<div id="main">
+
+    <div class="nothing-text"></div>
+
+    <div id="pendingInner" class="monitoring-inner" data-siteid="{{ listugc.siteid }}">
+        <div class="t-box">
+            <span class="title">
+                关联标题：<a target="_blank" title="{{ listugc.title }}" href="{{ listugc.url }}">{{ listugc.title }}</a>
+            </span>
+            <span class="info">
+                <strong>{{ getTime(listugc.time) }}</strong><em>/</em>来自：{{ listugc.source }}
+            </span>
+            <span class="degree-completion">
+                审核完成度：{{ parseint(listugc.processes * 100) }}%<em>/</em><a data-ng-click="openMonitoring()" class="keywords-remarks open-keywords-remarks-inner" href="javascript:void(0);">关键词与备注</a>
+            </span>
+        </div>
+
+        <div class="m-box">
+            <div class="monitoring-value">
+                <p class="show-text {{ usernameWd }}" data-ng-bind-html="getContent(listugc.content).val | to_trusted"></p>
+
+                <a data-ng-show="{{ getContent(listugc.content)._val != '' }}" data-save-val="{{ getContent(listugc.content)._val }}" data-ng-click="viewFull($event.target)" class="view-full-btn" href="javascript:void(0);">查看全文<s></s></a>
+
+                <img data-ng-class="{true : 'ugc-image-box',false : 'ugc-image-box hidden'}[listugc.check === 'image']" src="{{ listugc.image[0].image }}">
+
+                <div data-ng-class="{true : 'minImgListInner',false : 'minImgListInner hidden'}[listugc.image.length > 0 && listugc.check === 'ugc']">
+                    <ul class="img-list clearfix">
+                        <li class="list-li" data-ng-repeat="x in listugc.image" data-url="{{ x.image }}">
+                            <div class="mg">
+                                <img onload="imgCl(this,95,95);" src="{{ x.image }}">
+                            </div>
+                            <div class="tag-list-bull">
+                                <div class="t"></div>
+                                <div class="active"></div>
+                                <ul>
+                                    <li data-ng-repeat="i in wdType" data-id="{{ i.attr }}" title="{{ i.name }}" class="{{ tagClass(i.tags).className }}">{{ i.label }}</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="b-box">
+            <span class="machine-review">该内容系统机审后，标记为<span data-ng-repeat="x in listugc.label">“<span class="{{ tagClass(x.tags).className }}">{{ x.name }}</span>”</span></span>
+            <span class="high-frequency-words">文中的高频词：<span data-ng-repeat="x in listugc.top_words"><span class="xm">{{ x.word }}</span>（{{ x.times }}次）<em data-ng-hide="$last">/</em></span></span>
+        </div>
+
+        <div class="add-keywords-remark-inner">
+            <div class="nav">
+                <ul>
+                    <li class="select nav-keywords"><a href="javascript:void(0);">添加敏感词</a></li>
+                    <li class="nav-remark"><a href="javascript:void(0);">对内容添加备注</a></li>
+                </ul>
+            </div>
+            <div class="add-value">
+                <div class="add-keywords-value mu-value" data-ng-controller="dimensionCtrl">
+                    <div class="ui-text">
+                        <input class="keywords-input" type="text">
+                    </div>
+
+                    <div class="two-w ui-drop-down-inner dimension">
+                        <div class="ui-drop-down">
+                            <div class="show-t" data-id="{{ dimension }}">{{ dimensionName }}</div>
+                            <div class="triangle"></div>
+                        </div>
+                        <div class="ui-drop-down-list">
+                            <ul>
+                                <li data-ng-click="updateDimension(x.tags,x.name)" data-id="{{ x.tags }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in tagList">{{ x.name }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="two-w ui-drop-down-inner dimensionTag">
+                        <div class="ui-drop-down">
+                            <div class="show-t" data-id="{{ dimensionTag }}">{{ dimensionTagName }}</div>
+                            <div class="triangle"></div>
+                        </div>
+                        <div class="ui-drop-down-list">
+                            <ul>
+                                <li data-ng-click="updateDimensionTag(x.attr,x.label)" data-id="{{ x.attr }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in classify">{{ x.label }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-remark-value mu-value hidden">
+                    <div class="ui-textarea">
+                        <textarea class="remark-value-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="btn">
+                <a class="btn-blue save" data-ng-click="saveKeyword()" href="javascript:void(0);">保存</a>
+                <a class="btn-blue save hidden" data-ng-click="saveRemark()" href="javascript:void(0);">保存</a>
+                <a class="btn-white cancel" href="javascript:void(0);" data-ng-click="openMonitoring('cancel')">取消</a>
+            </div>
+            <div class="sj"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="taggingOperatingInner">
+    <div class="tagging-btn">
+        <div class="post">
+            <a id="postBtn" href="javascript:void(0);" data-ng-click="pendingPost()">提&nbsp;交</a>
+        </div>
+        <div class="normal">
+            <a id="normalBtn" href="javascript:void(0);" data-ng-click="pendingPost('normal')">正&nbsp;常</a>
+        </div>
+    </div>
+
+    <div class="dimension-tag-approval normal-ugc">
+        <div data-id="{{ x.tags }}" class="mu {{ tagClass(x.tags).className }} {{ x.tags }}" data-ng-repeat="x in tagsUgc">
+            <div class="tit">：{{ x.label }}</div>
+            <div class="tag-list">
+                <span data-ng-repeat="i in x.classify" data-id="{{ i.attr }}"><a href="javascript:void(0);"><s></s>{{ i.label }}</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dimension-tag-approval image-ugc">
+        <div data-id="{{ x.tags }}" class="mu {{ tagClass(x.tags).className }} {{ x.tags }}" data-ng-repeat="x in imageUgc">
+            <div class="tit">：{{ x.label }}</div>
+            <div class="tag-list">
+                <span data-ng-repeat="i in x.classify" data-id="{{ i.attr }}"><a href="javascript:void(0);"><s></s>{{ i.label }}</a></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="pendingSurplusInner">
+    <span class="surplus">剩余</span>
+    <span class="sun">{{ listugc.count }}</span>
+</div>

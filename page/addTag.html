@@ -1,0 +1,121 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>审核维度管理</span><em>&gt;</em><span>添加审核维度</span>
+        </div>
+    </div>
+
+    <div id="addEditFrom" class="add-tag">
+        <div class="a-box a-box-t clearfix tag-type-inner" data-tp="a">
+            <div class="tit">审核类型：</div>
+            <div class="value">
+
+                <div class="ui-drop-down-inner big-s">
+                    <div class="ui-drop-down">
+                        <div class="show-t">选择现有的审核类型</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-ng-click="cqs($event.target,'a','t-1')" class="select">选择现有的审核类型</li>
+                            <li data-ng-click="cqs($event.target,'b','t-2')">新增审核类型</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ui-drop-down-inner cqs-a">
+                    <div class="ui-drop-down">
+                        <div class="show-t">{{ tagType }}</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-ng-click="updateTagType(x.check,x.check_name)" data-id="{{ x.check }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in tagTypeJson">{{ x.check_name }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <span class="ui-text cqs-b hidden">
+                    <input class="zh-name" type="text" placeholder="中文名称">
+                    <input class="en-name" type="text" placeholder="英文名称" maxlength="2">
+                </span>
+
+            </div>
+        </div>
+
+        <div class="a-box clearfix tag-o-inner" data-tp="a">
+            <div class="tit">一级审核维度名称：</div>
+            <div class="value audit-category">
+
+                <div class="ui-drop-down-inner big-s select-one-dimension">
+                    <div class="ui-drop-down">
+                        <div class="show-t">选择现有的一级纬度</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-ng-click="cqs($event.target,'a')" class="select">选择现有的一级纬度</li>
+                            <li data-ng-click="cqs($event.target,'b')">新增一级纬度</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-w ui-drop-down-inner dimension cqs-a">
+                    <div class="ui-drop-down">
+                        <div class="show-t">{{ dimensionName }}</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-id="{{ x.check }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in tagListJson">{{ x.check_name }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <span class="ui-text cqs-b hidden">
+                    <input class="zh-name" type="text" placeholder="中文名称">
+                    <input class="en-name" type="text" placeholder="英文名称">
+                </span>
+
+            </div>
+        </div>
+
+        <div class="a-box tag-t-inner clearfix">
+            <div class="tit">二级审核维度名称：</div>
+            <div class="value">
+                <span class="ui-text">
+                    <input class="zh-name" type="text" placeholder="中文名称">
+                    <input class="en-name" type="text" placeholder="英文名称" maxlength="2">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">权重：</div>
+            <div class="value">
+                <span class="ui-text qz-num">
+                    <input type="text" maxlength="3" data-ng-blur="yzQz($event.target)">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">备注：</div>
+            <div class="value">
+                <div class="ui-textarea remark">
+                    <textarea></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit">&nbsp;</div>
+            <div class="value">
+                <a data-ng-click="addTagPost()" class="btn-blue-z add-tag-btn" href="javascript:void(0);">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

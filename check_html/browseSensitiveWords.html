@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>浏览敏感词</title>
+<link href="../styles/baseStyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="header">
+    <div class="inner">
+        <div class="logo">
+            <a href="/"><img src="../images/logo.png"></a>
+        </div>
+
+        <div class="user-operation">
+            <span>你好：<a href="#">Raiden</a></span>
+            <em>/</em>
+            <span><a href="#">账号设置</a></span>
+            <em>/</em>
+            <span><a href="#">退出</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<a href="#">敏感词维护</a><em>&gt;</em><a href="#">浏览敏感词</a>
+        </div>
+    </div>
+
+    <div id="searchOptions">
+        <div class="inner other-m clearfix">
+            <ul class="options clearfix">
+                <li>
+                    <div class="title">敏感词：</div>
+                    <div class="value">
+                        <div class="ui-text">
+                            <input type="text">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">审核维度：</div>
+                    <div class="value">
+                        <div class="two-w ui-drop-down-inner">
+                            <div class="ui-drop-down">
+                                <div class="show-t">危险言论</div>
+                                <div class="triangle"></div>
+                            </div>
+                            <div class="ui-drop-down-list">
+                                <ul>
+                                    <li class="select">危险言论</li>
+                                    <li>危险言论</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="two-w ui-drop-down-inner">
+                            <div class="ui-drop-down">
+                                <div class="show-t">危险言论</div>
+                                <div class="triangle"></div>
+                            </div>
+                            <div class="ui-drop-down-list">
+                                <ul>
+                                    <li class="select">危险言论</li>
+                                    <li>危险言论</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+            <a class="search-btn btn-blue-z" href="javascript:void(0);">搜&nbsp;&nbsp;索</a>
+
+        </div>
+    </div>
+
+    <div id="browseTable">
+
+        <div id="sensitiveWordsList">
+            <div class="top-info">
+                <span>符合搜索条件的敏感词共<var>1019</var>条记录，分为<var>1019</var>页显示，当前为第<var>1019</var>页</span>
+                <a href="javascript:void(0);" class="add-sensitive-words btn-white"><s></s>添加敏感词</a>
+            </div>
+
+            <div class="browse-talbe">
+                <table>
+                    <tr class="head">
+                        <th class="op">
+                            <span class="ui-select-inner all-ui-select-inner">
+                                <a class="ui-all-select" href="javascript:void(0);"></a>
+                                <span class="triangle"></span>
+                                <span class="nm-list">
+                                    <a class="select-al" href="javascript:void(0);">全选</a>
+                                    <a class="uncheck-all" href="javascript:void(0);">全不选</a>
+                                </span>
+                            </span>
+                        </th>
+                        <th>ID</th>
+                        <th>敏感词</th>
+                        <th>审核纬度</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr class="select-tr">
+                        <td class="op">
+                            <span class="ui-select-inner">
+                                <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                            </span>
+                        </td>
+                        <td>ZMTI3ODY5MzI</td>
+                        <td>四个全面</td>
+                        <td>时政（普通时政）</td>
+                        <td>2015-07-17 13:50</td>
+                        <td><a class="delete" title="删除" href="javascript:void(0);"><s></s></a></td>
+                    </tr>
+                    <tr>
+                        <td class="op">
+                            <span class="ui-select-inner">
+                                <a class="ui-select" href="javascript:void(0);"></a>
+                            </span>
+                        </td>
+                        <td>ZMTI3ODY5MzI</td>
+                        <td>四个全面</td>
+                        <td>时政（普通时政）</td>
+                        <td>2015-07-17 13:50</td>
+                        <td><a class="delete" title="删除" href="javascript:void(0);"><s></s></a></td>
+                    </tr>
+                    <tr>
+                        <td class="op">
+                            <span class="ui-select-inner">
+                                <a class="ui-select" href="javascript:void(0);"></a>
+                            </span>
+                        </td>
+                        <td>ZMTI3ODY5MzI</td>
+                        <td>四个全面</td>
+                        <td>时政（普通时政）</td>
+                        <td>2015-07-17 13:50</td>
+                        <td><a class="delete" title="删除" href="javascript:void(0);"><s></s></a></td>
+                    </tr>
+                    <tr>
+                        <td class="op">
+                            <span class="ui-select-inner">
+                                <a class="ui-select" href="javascript:void(0);"></a>
+                            </span>
+                        </td>
+                        <td>ZMTI3ODY5MzI</td>
+                        <td>四个全面</td>
+                        <td>时政（普通时政）</td>
+                        <td>2015-07-17 13:50</td>
+                        <td><a class="delete" title="删除" href="javascript:void(0);"><s></s></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="pageInner">
+            <div class="ui-paginator">
+                <a href="javascript:void('first');" class="first disabled">首页</a>
+
+                <div class="pages-inner">
+                    <a href="javascript:void('prev');" class="prev disabled">上一页</a>
+                    <div class="pages">
+                        <a href="javascript:void('1');" title="第 1 页" class="now-page">1/4</a>
+                        <div class="pages-select-list">
+                            <ul>
+                                <li class="select"><a href="javascript:void('1');" title="第 1 页">1/4</a></li>
+                                <li><a href="javascript:void('2');" title="第 2 页">2/4</a></li>
+                                <li><a href="javascript:void('3');" title="第 3 页">3/4</a></li>
+                                <li><a href="javascript:void('4');" title="第 4 页">4/4</a></li>
+                            </ul>
+                        </div>
+                        <div class="sj"></div>
+                    </div>
+                    <a href="javascript:void('next');" class="next">下一页</a>
+                </div>
+
+                <a href="javascript:void('last');" class="last">末页</a>
+            </div>
+
+            <a href="javascript:void(0);" class="add-sensitive-words btn-white"><s></s>添加敏感词</a>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

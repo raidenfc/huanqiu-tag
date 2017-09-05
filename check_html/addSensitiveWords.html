@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加敏感词</title>
+<link href="../styles/baseStyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="header">
+    <div class="inner">
+        <div class="logo">
+            <a href="/"><img src="../images/logo.png"></a>
+        </div>
+
+        <div class="user-operation">
+            <span>你好：<a href="#">Raiden</a></span>
+            <em>/</em>
+            <span><a href="#">账号设置</a></span>
+            <em>/</em>
+            <span><a href="#">退出</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<a href="#">敏感词维护</a><em>&gt;</em><a href="#">添加敏感词</a>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">审核分类：</div>
+            <div class="value">
+
+                <div class="one-w ui-drop-down-inner">
+                    <div class="ui-drop-down">
+                        <div class="show-t">一级分类</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li>危险言论</li>
+                            <li>危险言论</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-w ui-drop-down-inner">
+                    <div class="ui-drop-down">
+                        <div class="show-t">二级分类</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li>散布谣言</li>
+                            <li>地域攻击</li>
+                            <li>反动</li>
+                            <li>卖国</li>
+                            <li>煽动集会</li>
+                            <li>教唆犯罪</li>
+                            <li>邪教</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">敏感词名称：</div>
+            <div class="value">
+
+                <div class="ui-textarea sensitive-words-textarea">
+                    <textarea>
+田中角荣
+小泉纯一郎
+                    </textarea>
+                </div>
+                <cite class="textarea-tips">提示：每行输入一个敏感词；重复词语将使用新的设置覆盖已经存在的词语。每次最多可新增 100 个词语。</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">应用站点：</div>
+            <div class="value">
+                <span class="ui-select-inner">
+                    <a class="ui-select ui-select-s" href="javascript:void(0);"></a>
+                    <span>全部站点</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit">&nbsp;</div>
+            <div class="value">
+                <a id="addSensitiveWordsBtn" class="btn-blue-z" href="javascript:void(0);">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

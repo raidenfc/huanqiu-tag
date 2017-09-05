@@ -1,0 +1,74 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>审核维度管理</span><em>&gt;</em><span>管理审核维度</span>
+        </div>
+    </div>
+
+    <div id="browseTable">
+
+        <div id="sensitiveWordsList">
+
+            <div class="top-info">
+                <span>符合搜索条件的信息共<var>{{ pagesTotal }}</var>条记录，分为<var>{{ pagesNum }}</var>页显示，当前为第<var>{{ page }}</var>页</span>
+                <a href="#/addTag" class="add-btn btn-white"><s></s>新增审核维度</a>
+            </div>
+
+            <div class="browse-talbe">
+                <table>
+                    <tr class="head">
+                        <th class="op"></th>
+                        <th>一级审核维度名称</th>
+                        <th>二级审核维度名称</th>
+                        <th>审核类型</th>
+                        <th>权重</th>
+                        <th>添加时间</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr data-ng-repeat="x in listData">
+                        <td class="op">{{ $index + 1 }}</td>
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.label }}</td>
+                        <td>{{ x.check_name }}</td>
+                        <td>{{ x.weight }}</td>
+                        <td>{{ getTime(x.addtime) }}</td>
+                        <td><span title="{{x.remark}}" class="remark">{{ x.remark }}</span></td>
+                        <td>
+                            <a class="delete" title="删除" href="javascript:void(0);"><s data-id="{{ x.id }}" data-name="{{ x.name }}" data-label="{{ x.label }}" data-ng-click="deleteTag($event.target)"></s></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="pageInner" class="clearfix">
+            <div class="ui-paginator">
+                <a href="#/browseTag/{{ pageFirst }}" class="first">首页</a>
+
+                <div class="pages-inner">
+                    <a href="#/browseTag/{{ pagePrev }}" class="prev">上一页</a>
+                    <div class="pages">
+                        <a href="javascript:void(0);" title="第 {{ page }} 页" class="now-page">{{ page }}/{{ pagesNum }}</a>
+                        <div class="pages-select-list">
+                            <ul>
+                                <li data-ng-repeat="x in pagesArr" data-ng-class="{true: 'select'}[page - x == 0]">
+                                    <a href="#/browseTag/{{x + ssArr}}" title="第 {{x}} 页">{{x}}/{{ pagesNum }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sj"></div>
+                    </div>
+                    <a href="#/browseTag/{{ pageNext }}" class="next">下一页</a>
+                </div>
+
+                <a href="#/browseTag/{{ pageEnd }}" class="last">末页</a>
+            </div>
+
+            <a href="#/addTag" class="add-btn btn-white"><s></s>新增审核维度</a>
+        </div>
+
+    </div>
+
+</div>

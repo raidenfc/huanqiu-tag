@@ -1,0 +1,73 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>管理管理员</span><em>&gt;</em><span>帐号设置</span>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">用户ID：</div>
+            <div class="value username">{{ id }}</div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">权限设置：</div>
+            <div class="value">{{ sAdmin(role) }}</div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">应用站点：</div>
+            <div class="value">全部站点</div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">真实姓名：</div>
+            <div class="value">
+                <span class="ui-text real-name">
+                    <input type="text" maxlength="20" value="{{realname}}">
+                </span>
+                <cite>字母与数字组成，20个字符内</cite>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">原密码：</div>
+            <div class="value password">
+                <span class="ui-text">
+                    <input type="password">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">新密码：</div>
+            <div class="value new-password-1">
+                <span class="ui-text">
+                    <input type="password">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">确认密码：</div>
+            <div class="value new-password-2">
+                <span class="ui-text">
+                    <input type="password">
+                </span>
+            </div>
+        </div>
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit"></div>
+            <div class="value">
+                <a class="btn-blue-z" href="javascript:void(0);" data-ng-click="setupAdminPost()">修&nbsp;&nbsp;改</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

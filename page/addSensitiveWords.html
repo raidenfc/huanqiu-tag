@@ -1,0 +1,72 @@
+<div id="main">
+
+    <div id="topBar">
+        <div class="bread-crumbs">
+            当前位置：<span>敏感词维护</span><em>&gt;</em><span>添加敏感词</span>
+        </div>
+    </div>
+
+    <div id="addEditFrom">
+        <div class="a-box a-box-t clearfix">
+            <div class="tit">审核分类：</div>
+            <div class="value audit-category" data-ng-controller="dimensionCtrl">
+
+                <div class="two-w ui-drop-down-inner dimension">
+                    <div class="ui-drop-down">
+                        <div class="show-t" data-id="{{ dimension }}">{{ dimensionName }}</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-ng-click="updateDimension(x.tags,x.name)" data-id="{{ x.tags }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in tagList">{{ x.name }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-w ui-drop-down-inner dimensionTag">
+                    <div class="ui-drop-down">
+                        <div class="show-t" data-id="{{ dimensionTag }}">{{ dimensionTagName }}</div>
+                        <div class="triangle"></div>
+                    </div>
+                    <div class="ui-drop-down-list">
+                        <ul>
+                            <li data-ng-click="updateDimensionTag(x.attr,x.label)" data-id="{{ x.attr }}" data-ng-class="{true:'select'}[$index == 0]" data-ng-repeat="x in classify">{{ x.label }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="a-box clearfix">
+            <div class="tit">敏感词名称：</div>
+            <div class="value">
+
+                <div class="ui-textarea sensitive-words-textarea">
+                    <textarea></textarea>
+                </div>
+                <cite class="textarea-tips">提示：每行输入一个敏感词；重复词语将使用新的设置覆盖已经存在的词语。每次最多可新增 100 个词语。</cite>
+            </div>
+        </div>
+
+        <!--<div class="a-box clearfix">-->
+            <!--<div class="tit">应用站点：</div>-->
+            <!--<div class="value">-->
+                <!--<span class="ui-select-inner">-->
+                    <!--<a class="ui-select application-site ui-select-s" href="javascript:void(0);"></a>-->
+                    <!--<span>全部站点</span>-->
+                <!--</span>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="a-box a-box-b clearfix">
+            <div class="tit">&nbsp;</div>
+            <div class="value">
+                <a data-ng-click="addSensitiveWordsPost()" class="btn-blue-z" href="javascript:void(0);">添&nbsp;&nbsp;加</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
